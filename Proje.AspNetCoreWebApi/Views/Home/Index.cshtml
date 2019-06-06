@@ -1,0 +1,37 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+<script>
+    var user = {
+        "Name": "jhon",
+        "Surname":"Whatson",
+        "Token": "1",
+        "Gender": true
+    };
+    var role = {
+        "RoleText": "table"
+    };
+    var myData = {};
+    myData.UserData = user;
+    myData.RoleData = role;
+    $.ajax({
+        type: 'POST',
+        async: true,
+        dataType: 'json',
+        contentType: 'application/json; charset=UTF-8',
+        url: "/User/Add",
+        data: myData,
+        success: function (data) {
+            console.log("Response Data ↓");
+            console.log(data);
+        },
+        error: function (err) {
+            console.log(err);
+        }
+    });
+</script>
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+</div>
